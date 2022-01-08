@@ -1,0 +1,50 @@
+Date: 8/1/2022
+Time: 17:18
+Phone Number: +918805957553
+Message: Atharva here
+--------------------
+Date: 8/1/2022
+Time: 17:20
+Phone Number: +918805957553
+Message: Atharva here
+--------------------
+Date: 8/1/2022
+Time: 17:25
+Phone Number: +918805957553
+Message: Atharva here
+--------------------
+Date: 8/1/2022
+Time: 17:29
+Phone Number: +918805957553
+Message: Atharva here
+--------------------
+Date: 8/1/2022
+Time: 17:33
+Phone Number: +918805957553
+Message: Atharva here
+--------------------
+Date: 8/1/2022
+Time: 17:39
+Phone Number: +918805957553
+Message: Atharva here
+--------------------
+Date: 8/1/2022
+Time: 17:41
+Phone Number: +918805957553
+Message: Atharva here
+--------------------
+Date: 8/1/2022
+Time: 17:44
+Phone Number: +91 96195 12778
+Message: Hi, This is Atharva. This message is sent using pywhatkit package of python. See here https://www.geeksforgeeks.org/introduction-to-pywhatkit-module/
+--------------------
+Date: 8/1/2022
+Time: 18:27
+Phone Number: + 91 880 595 7553
+Message: hello
+--------------------
+Date: 8/1/2022
+Time: 18:46
+Phone Number: + 91 880 595 7553
+Message: this message is sent using alexa
+--------------------
