@@ -16,7 +16,7 @@ import asyncio
 listener = sr.Recognizer()
 engine = pyttsx3.init() # Initializing text-to-speech package
 voices = engine.getProperty('voices')
-print(voices)
+# print(voices)
 engine.setProperty('voice', voices[2].id) # Setting voice as female tone, voices has all voice options
 
 
@@ -71,70 +71,134 @@ def run_alexa(command):
         # print(com) 
 
     elif 'whatsapp' in command or 'message' in command:
-        talk('Whom you want me to message on whatsapp?')
-        print()
-        print('Whom you want me to message on whatsapp?')
         try:
             with sr.Microphone() as source2:
                 while(True):
+                    talk('Whom you want me to message on whatsapp? Tell me the number with country code')
+                    print()
+                    print('Whom you want me to message on whatsapp? Tell me the number with country code')                   
                     print('listening...')
+                    time.sleep(3)
                     voice2 = listener.listen(source2) # Recognizes your voice
                     number = listener.recognize_google(voice2) # Converts to text
                     number = number.lower()
-                    time.sleep(3)
+                    # time.sleep(3)
 
-                    talk("Is this number correct: ",number)
-                    ans = input("Is this number correct: ",number," Y/n")
-                    if ans == "Y" or ans == "y":
-                        break
-                    else :
-                        continue
+                    talk("Is this number correct: ")
+                    talk(number)
+                    print()
+                    print("Is this number correct: ", number)
+
+                    with sr.Microphone() as source6:
+                        voice6 = listener.listen(source6)
+                        ans1 = listener.recognize_google(voice6) 
+                        print(ans1)
+                        if ans1 == "Y" or ans1 == "y" or ans1 == "yes":
+                            break
+                        else :
+                            continue
         except:
             pass
 
-        talk('What is the message?')
-        print()
-        print('What is the message?')
         try:
             with sr.Microphone() as source3:
-                print('listening...')
-                voice2 = listener.listen(source3) # Recognizes your voice
-                message = listener.recognize_google(voice2) # Converts to text
-                message = message.lower()
-                print(message)
+                while(True):
+                    talk('What is the message?')
+                    print()
+                    print('What is the message?')
+                    print('listening...')
+                    voice2 = listener.listen(source3) # Recognizes your voice
+                    message = listener.recognize_google(voice2) # Converts to text
+                    message = message.lower()
+
+                    talk("Is this message correct: ")
+                    talk(message)
+                    print()
+                    print("Is this message correct: ", message)
+
+                    with sr.Microphone() as source7:
+                        voice7 = listener.listen(source7)
+                        ans2 = listener.recognize_google(voice7) 
+                        print(ans2)
+                        if ans2 == "Y" or ans2 == "y" or ans2 == "yes":
+                            break
+                        else :
+                            continue
         except:
             pass
 
         talk('At what time you want me the message to be sent? In 24-hour format.')
-        talk('Tell me the hour at which the message must be sent?')
-        print()
-        print('Tell me the hour at which the message must be sent?')
         try:
             with sr.Microphone() as source4:
-                print('listening...')
-                voice4 = listener.listen(source4) # Recognizes your voice
-                hour = listener.recognize_google(voice4) # Converts to text
-                hour = hour.lower()
-                hour = int(hour)
-                print(hour)
+                while(True):
+                    talk('Tell me the hour at which the message must be sent?')
+                    print()
+                    print('Tell me the hour at which the message must be sent?')
+                    print('listening...')
+                    voice4 = listener.listen(source4) # Recognizes your voice
+                    hour = listener.recognize_google(voice4) # Converts to text
+                    hour = hour.lower()
+                    hour = int(hour)
+
+                    talk("Is this value of hour correct: ")
+                    talk(hour)
+                    print()
+                    print("Is this value of hour correct: ", hour)
+                    
+                    with sr.Microphone() as source8:
+                        voice8 = listener.listen(source8)
+                        ans3 = listener.recognize_google(voice8) 
+                        print(ans3)
+                        if ans3 == "Y" or ans3 == "y" or ans3 == "yes":
+                            break
+                        else :
+                            continue
         except:
             pass
 
-        talk('Tell me the minute at which the message must be sent?')
-        print()
-        print('Tell me the minute at which the message must be sent?')
         try:
             with sr.Microphone() as source5:
-                print('listening...')
-                voice5 = listener.listen(source5) # Recognizes your voice
-                minute = listener.recognize_google(voice5) # Converts to text
-                minute = minute.lower()
-                minute = int(minute)
-                print(minute)
+                while(True):
+                    talk('Tell me the minute at which the message must be sent?')
+                    print()
+                    print('Tell me the minute at which the message must be sent?')
+                    print('listening...')
+                    voice5 = listener.listen(source5) # Recognizes your voice
+                    minute = listener.recognize_google(voice5) # Converts to text
+                    minute = minute.lower()
+                    minute = int(minute)
+
+                    talk("Is this value of minute correct: ")
+                    talk(minute)
+                    print()
+                    print("Is this value of minute correct: ", minute)
+                    
+                    with sr.Microphone() as source9:
+                        voice9 = listener.listen(source9)
+                        ans4 = listener.recognize_google(voice9) 
+                        print(ans4)
+                        if ans4 == "Y" or ans4 == "y" or ans4 == "yes":
+                            break
+                        else :
+                            continue
         except:
             pass
-        talk(f'Message will be delivered to ${number}. Message is ${message}, and will be sent at ${hour} hrs ${minute} minutes')
-        pywhatkit.sendwhatmsg(number, message, hour, minute, 32)
+
+        if(number=='' or str(hour)=='' or str(minute)=='' or message==''):
+            talk('Message could not be sent')
+            print('Message could not be sent')
+            print()
+        else:
+            talk('Message will be delivered to ')
+            talk(number)
+            talk(' at ')
+            talk(hour)
+            talk(' hours ')
+            talk(minute)
+            talk(' minutes')
+            print()
+            print('Message will be delivered to ', number,' at ', hour,' hrs ', minute,' minutes\n')
+            pywhatkit.sendwhatmsg(number, message, hour, minute, 32)
 
 
     elif 'time' in command:
@@ -172,17 +236,21 @@ def run_alexa(command):
         talk(pyjokes.get_joke())
 
     else:
-        if('quit' in command) or ('stop' in command):
+        if(command!='' and (('quit' in command) or ('stop' in command))):
             pass
         else:    
             talk('Please say the command again.')
     
-    time.sleep(5)
+    time.sleep(3)
 
+talk(''' Hey, Welcome to my talking chatbot. 
+    I was always curious of developing something like this and 
+    finally I have completed it. You are free to ask some questions to me.
+    ''')
 print(
     ''' Hey, Welcome to my talking chatbot. 
     I was always curious of developing something like this and 
-    finally I have completed it. 
+    finally I have completed it. You are free to ask some questions to me.
     '''
 )
 
@@ -190,6 +258,6 @@ while True:
     command = take_command()
     print(command)
     run_alexa(command)
-    if ('stop'  in command) or ('quit' in command):
+    if ('stop'  in command) or ('quit' in command) or ('exit' in command):
         talk('It was a nice experience talking with you. Hope to talk with you again!')
         break

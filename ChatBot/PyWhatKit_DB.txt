@@ -48,3 +48,18 @@ Time: 18:46
 Phone Number: + 91 880 595 7553
 Message: this message is sent using alexa
 --------------------
+Date: 8/1/2022
+Time: 20:28
+Phone Number: + 91 880 595 7553
+Message: hello there
+--------------------
+Date: 8/1/2022
+Time: 20:41
+Phone Number: + 91 880 595 7553
+Message: i want to go on whatsapp
+--------------------
+Date: 8/1/2022
+Time: 23:16
+Phone Number: + 91 880 595 7553
+Message: thank you wale exam
+--------------------
